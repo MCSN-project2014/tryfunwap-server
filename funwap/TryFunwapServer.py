@@ -4,10 +4,10 @@ import subprocess
 from subprocess import TimeoutExpired
 import uuid
 import os
-from flask_cors import CORS
+from flask.ext.cors import CORS
 
 app = Flask(__name__)
-cors = CORS(app)
+cors = CORS(app, allow_headers='Content-Type')
 
 
 @app.route('/interpret', methods=['POST', 'GET'])
