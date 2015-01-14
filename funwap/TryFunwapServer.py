@@ -48,14 +48,15 @@ def compile():
         fileNameOut = "bin/"+str(uuid.uuid4())+".fs"
         out = runCommand(['mono', 'bin/funwapc.exe', fileName, '-o', fileNameOut], fileName)
 
+        ris = ''
         try:
             with open(fileNameOut, 'r') as content_file:
-                out = out + '\n' + content_file.read()
+                ris = content_file.read()
         except:
             return out
 
         os.remove(fileNameOut)
-        return out
+        return ris
 
     return 'run'
 
